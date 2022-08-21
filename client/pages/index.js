@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Content from '../components/Content'
 import MainSearch from '../components/Mainsearch'
 
 
@@ -11,6 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MainSearch/>
+      <Content/>
     </div>
   )
 }
