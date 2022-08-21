@@ -1,0 +1,68 @@
+@import url("https://smc.org.in/fonts/manjari.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.navbarContainer{
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.iteminvisible{
+    width: 6rem;
+}
+
+.navbarLogo h1{
+    font-family: 'Noto Sans Malayalam', sans-serif;
+    font-weight: 600;
+    font-size: 38px;
+    cursor: pointer;
+}
+
+.navbarLogin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Manjari", sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 7px;
+}
+
+.navbarLogin:hover{
+    background: rgba(233, 232, 232, 0.721);
+}
+
+.navbarLogin :nth-child(3){
+    display: none;
+}
+
+.navbarLogin span{
+    margin-top: 0.3rem;
+}
+
+ /* Responsive Design */ 
+
+ @media (max-width:690px) {
+    .iteminvisible{
+        display: none;
+    }
+    .navbarLogin{
+        flex-direction: column;
+    }
+    .navbarLogin :nth-child(2){
+        display: none;
+    }
+    .navbarLogin :nth-child(3){
+        display: initial;
+    }
+    .navbarLogin:hover{
+        background: none;
+    }
+    .navbarLogo h1{
+        font-size: 32px;
+    }
+}  
