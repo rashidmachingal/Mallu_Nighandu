@@ -1,0 +1,31 @@
+.footerContainer {
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footerBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .footerBox a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  .footerBox div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  
+  .footerContainer span {
+    font-weight: 600;
+  }
