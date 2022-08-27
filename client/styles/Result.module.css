@@ -90,8 +90,15 @@
   list-style: none;
 }
 
-.resultItems h4{
-    color: rgb(52, 52, 52);
+.resultItems li span:first-child{
+  font-weight: 800;
+}
+
+.resultItems li i:last-child{
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.364);
+  font-size: 13.5px;
+  font-style: italic;
 }
 
 /* Result Add Edit */
@@ -111,7 +118,7 @@
 
 /* Responsive Design */
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .resultBox {
     width: 95%;
   }

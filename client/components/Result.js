@@ -1,40 +1,30 @@
 import SearchIcon from "@mui/icons-material/Search";
 import styles from '../styles/Result.module.css'
 
-const Result = () => {
+const Result = ({word,data}) => {
   return (
     <>
      <div className={styles.resultContainer}>
         <div className={styles.resultBox}>
           <div className={styles.resultSearch}>
             <SearchIcon style={{ color: "#808080" }} />
-            <input defaultValue="speak" placeholder="Search Word" type="mobile"/>
+            <input defaultValue={word} placeholder="Search Word" type="mobile"/>
           </div>
           <div className={styles.resultTitle}>
             <p>
-              <span>shadow</span> എന്ന വാക്കിന്റെ അർഥം
+              <span>{word}</span> എന്ന വാക്കിന്റെ അർഥം
             </p>
           </div>
           <div className={styles.resultMeaning}>
-            <div className={styles.resultItems}>
-              <h4>noun</h4>
-              <ul>
-               <li>- മറവ്‌ </li>
-               <li>- നിഴല്‍ </li>
-               <li>- തണല്‍ </li>
-               <li>- നിഴലാട്ടം </li>
-               <li>- ദ്യോതിപ്പിക്കുക </li>
-               <li>- സന്തതസഹചാരി </li>
-              </ul>
-            </div>
-            <div className={styles.resultItems}>
-              <h4>verb</h4>
-              <ul>
-               <li>- രക്ഷിക്കുക </li>
-               <li>- മങ്ങലാക്കുക </li>
-               <li>- ഇരുളാക്കുക </li>
-              </ul>
-            </div>
+            {data.map((i,id)=>{
+              return(
+                <div className={styles.resultItems}>
+                  <ul>
+                    <li><span>{id+1}.</span> {i.malayalam_definition} {i.part_of_speech === "-" ? null : <i>({i.part_of_speech})</i>}</li>
+                  </ul>
+                </div>
+              )
+            })}
           </div>
 
           <div className={styles.resultAddEdit}>
