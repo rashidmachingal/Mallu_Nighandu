@@ -1,0 +1,59 @@
+@import url("https://smc.org.in/fonts/manjari.css");
+
+.notContainer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+/* Not Box */
+
+.notBox{
+    box-shadow: 0 0 2px rgba(117, 113, 113, 0.539);
+    width: 40rem;
+    /* height: 22rem; */
+    border-radius: 10px;
+    background: #2b3d4e34;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Not Search */
+
+.notSearch{
+    margin-top: 1.4rem;
+    width: 60%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border-radius: 6px;
+    padding-left: 8px;
+  }
+  
+  .notSearch input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 500;
+    padding-left: 5px;
+    background: none;
+    text-transform: lowercase;
+  }
+  
+  .notSearch  form{
+    width: 100%;
+  }
+
+/* Not Message   */
+
+.notMessage{
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+}

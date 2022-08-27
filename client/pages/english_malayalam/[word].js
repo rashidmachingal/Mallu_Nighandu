@@ -16,6 +16,15 @@ export async function getServerSideProps({ params }) {
   const res = await axios.get("http://localhost:5000/api/search/"+params.word)
   const data = await res.data
 
+  if(data[0].status === "notfound"){
+    return {
+      redirect: {
+        destination: `/en_ml/${data[0].search_word}`,
+        permanent: false,
+      },
+    };
+  }
+
   // Pass data to the page via props
   return { props: { data } }
 }
