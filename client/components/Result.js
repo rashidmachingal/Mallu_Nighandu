@@ -18,7 +18,7 @@ const Result = ({word,data}) => {
           <div className={styles.resultMeaning}>
             {data.map((i,id)=>{
               return(
-                <div className={styles.resultItems}>
+                <div key={id} className={styles.resultItems}>
                   <ul>
                     <li><span>{id+1}.</span> {i.malayalam_definition} {i.part_of_speech === "-" ? null : <i>({i.part_of_speech})</i>}</li>
                   </ul>
