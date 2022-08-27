@@ -20,7 +20,7 @@ const Result = ({word,data}) => {
               return(
                 <div key={id} className={styles.resultItems}>
                   <ul>
-                    <li><span>{id+1}.</span> {i.malayalam_definition} {i.part_of_speech === "-" ? null : <i>({i.part_of_speech})</i>}</li>
+                    <li><span>{id+1}.</span> {i.malayalam_definition} {i.part_of_speech === "-" | "" ? null : <i>({i.part_of_speech})</i>}</li>
                   </ul>
                 </div>
               )
