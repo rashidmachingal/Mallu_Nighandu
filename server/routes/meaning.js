@@ -6,13 +6,14 @@ const Meaning = require("../models/Meaning");
 router.post("/add-new-word", async (req, res) => {
   try {
     const allItems = req.body;
-    allItems.map((i) => {
+    allItems.map( async (i) => {
       const newWord = new Meaning({
         english_word: i.english_word,
         part_of_speech: i.part_of_speech,
         malayalam_definition: i.malayalam_definition,
       });
       newWord.save();
+      res.json({status:"OK"})
     });
   } catch (error) {
     res.json(error);
