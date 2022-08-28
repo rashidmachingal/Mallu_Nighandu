@@ -25,11 +25,20 @@ const MainSearch = () => {
             <h2>ഇംഗ്ലീഷ്  - മലയാളം നിഘണ്ടു </h2>
           </div>
           <div className={styles.homeSearch}>
-            <SearchIcon style={{ color: "#808080"}} />
             <form onSubmit={handleSearch}>
              <input onChange={(e)=>setSearchWord(e.target.value)} value={searchWord} placeholder='Search Word' type="mobile" />
             </form>
+            <SearchIcon style={{ color: "#808080"}} />
           </div>
+          <div className={styles.searchSuggetion}>
+            <ul>
+              <li>speak</li>
+              <li>spart</li>
+              <li>spark</li>
+              <li>specious</li>
+              <li>splender</li>
+            </ul>
+           </div>
           <div className={styles.homeAddWord}>
             <button onClick={()=>router.push("/add-new-word")} >പുതിയ ഒരു പദം ചേര്‍ക്കുക <AddIcon fontSize='x-small' /></button>
           </div>

@@ -10,12 +10,13 @@
 .homeBox {
   box-shadow: 0 0 2px rgba(117, 113, 113, 0.539);
   width: 40rem;
-  height: 22rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
   background: #2b3d4e34;
+  padding-bottom: 4rem;
 }
 
 /* Home Image */
@@ -46,7 +47,7 @@
   align-items: center;
   background: white;
   border-radius: 6px;
-  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .homeSearch form{
@@ -61,8 +62,31 @@
   font-size: 16px;
   font-family: "Mulish", sans-serif;
   font-weight: 500;
-  padding-left: 5px;
+  padding-left: 6px;
   background: none;
+}
+
+.searchSuggetion{
+  position: fixed;
+  margin-top: 15.6rem;
+  width: 24rem;
+  height: auto;
+  background: white;
+  box-shadow: 0px 0px 5px 1px #00000026;
+  border-radius: 6px;
+}
+
+.searchSuggetion li{
+  font-family: "Mulish", sans-serif;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.searchSuggetion li:hover{
+  background: rgba(233, 232, 232, 0.721);
+  cursor: pointer;
 }
 
 
@@ -85,6 +109,9 @@
 /* Responsive Design */
 
 @media (max-width: 680px) {
+  .searchSuggetion{
+    width: 78%;
+  }
   .homeBox {
     width: 95%;
   }
