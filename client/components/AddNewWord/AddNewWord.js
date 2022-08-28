@@ -91,10 +91,8 @@ const AddNewWord = () => {
             </div>
 
             <div className={mainState.length ? styles.addPreview : null}>
-               
-         {
-          mainState.map((i,id)=>{
-            return(
+              {mainState.map((i,id)=>{
+             return(
               <React.Fragment key={id} >
                <div className={styles.addPreviewMn}>
                 <div>
@@ -106,8 +104,7 @@ const AddNewWord = () => {
               </div>
              </React.Fragment>
             )
-           }) 
-         }
+           })}
             <div className={styles.addPadding}></div></div>
             <div className={styles.addSubmitBtn}>
               <button>PUBLISH</button>
