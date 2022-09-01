@@ -2,14 +2,17 @@ import styles from '../styles/Mainsearch.module.css'
 import { useRouter } from 'next/router';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
-import {  useState } from 'react';
+import React, {  useState } from 'react';
 import Image from 'next/image'
+import OutsideAlerter from './OutsideAlerter';
 
 const MainSearch = ({data}) => {
   
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
+    const [focused, setFocused] = useState(false)
     const router = useRouter();
+    const OnFocus = () => setFocused(true)
 
     const handleSearch = (e) => {
       e.preventDefault()
@@ -20,13 +23,12 @@ const MainSearch = ({data}) => {
 
     const handleFilter = (e) => {
       const searchWord = e.target.value;
-
       setWordEntered(searchWord);
       const newFilter = data.filter((value) => {
         const regex = new RegExp(`^${searchWord}`,'gi')
         return value.english_word.match(regex);
       });
-      
+    
       if(searchWord===""){
         setFilteredData([])
       }else{
@@ -45,13 +47,14 @@ const MainSearch = ({data}) => {
           <div className={styles.homeTitles}>
             <h2>ഇംഗ്ലീഷ്  - മലയാളം നിഘണ്ടു </h2>
           </div>
+          <OutsideAlerter setFocused={setFocused} >
           <div className={styles.homeSearch}>
             <form onSubmit={handleSearch}>
-             <input onChange={handleFilter} value={wordEntered} placeholder='Search Word' type="mobile" />
+             <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} placeholder='Search Word' type="mobile" />
             </form>
             <SearchIcon style={{ color: "#808080"}} />
           </div>
-          {filteredData.length === 0 ? null : 
+          {filteredData.length > 0 && focused===true ? 
           
           <div className={styles.searchSuggetion}>
             <ul>
@@ -61,9 +64,9 @@ const MainSearch = ({data}) => {
             );
           })}
             </ul>
-          </div>
-
+          </div>:null
           }
+          </OutsideAlerter>
           <div className={styles.homeAddWord}>
             <button onClick={()=>router.push("/add-new-word")} >പുതിയ ഒരു പദം ചേര്‍ക്കുക <AddIcon fontSize='x-small' /></button>
           </div>
@@ -74,3 +77,4 @@ const MainSearch = ({data}) => {
 }
 
 export default MainSearch
+

@@ -36,6 +36,16 @@
   font-weight: 500;
 }
 
+/* Home Search Container */
+
+.searchContainer{
+  width: 40rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Home Search */
 
 .homeSearch{
@@ -68,7 +78,7 @@
 
 .searchSuggetion{
   position: fixed;
-  margin-top: 15.6rem;
+  margin-top: 4.1rem;
   width: 24rem;
   height: auto;
   background: white;
@@ -110,8 +120,11 @@
 /* Responsive Design */
 
 @media (max-width: 680px) {
+  .searchContainer{
+    width: 82%;
+  }
   .searchSuggetion{
-    width: 78%;
+    width: 63.6%;
   }
   .homeBox {
     width: 95%;
