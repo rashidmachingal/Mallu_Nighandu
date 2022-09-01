@@ -74,6 +74,7 @@
   background: white;
   box-shadow: 0px 0px 5px 1px #00000026;
   border-radius: 6px;
+  z-index: 3;
 }
 
 .searchSuggetion li{
@@ -85,7 +86,7 @@
 }
 
 .searchSuggetion li:hover{
-  background: rgba(233, 232, 232, 0.721);
+  background: rgba(205, 205, 205, 0.736);
   cursor: pointer;
 }
 

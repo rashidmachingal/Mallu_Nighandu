@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Meaning = require("../models/Meaning");
+const fs = require("fs")
+
 
 // add new word
 router.post("/add-new-word", async (req, res) => {
@@ -23,30 +25,28 @@ router.post("/add-new-word", async (req, res) => {
 // get word meaning
 router.get("/search/:word", async (req, res) => {
   try {
-    const word = await Meaning.find({ english_word: req.params.word });
+    let word = await Meaning.find({ english_word: req.params.word });
+
     if (word.length === 0) {
       const word = [{ status: "notfound", search_word: req.params.word }];
       return res.json(word);
     }
+
     res.json(word);
   } catch (error) {
     res.json(error);
   }
 });
 
-// get all word meaning
-router.get("/get-all-words", async (req, res) => {
+// get search_keywords
+router.get("/get-search-keywords", async (req,res) => {
   try {
-    const words = await Meaning.find()
+    let search_keywords = await Meaning.find({ english_word: req.params.word });
+    res.json(search_keywords)
+    
   } catch (error) {
-    res.json(error);
+    res.json(error)
   }
-});
-
-
-// practice
-
-
-
+})
 
 module.exports = router;
