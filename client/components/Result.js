@@ -46,10 +46,10 @@ const Result = ({word,data,searchKeywords}) => {
         <div className={styles.resultBox}>
           <OutsideAlerter setFocused={setFocused}>
            <div className={styles.resultSearch}>
-            <SearchIcon style={{ color: "#808080" }} />
             <form onSubmit={handleSearch}>
-             <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} defaultValue={word} placeholder="Search Word" type="mobile"/>
+             <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} placeholder="Search Word" type="mobile"/>
             </form>
+            <SearchIcon style={{ color: "#808080" }} />
            </div>
            {filteredData.length > 0 && focused===true ? 
           
