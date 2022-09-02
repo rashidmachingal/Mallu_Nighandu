@@ -2,12 +2,14 @@ import styles from '../styles/Mainsearch.module.css'
 import { useRouter } from 'next/router';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
+import CircularProgress from '@mui/material/CircularProgress';
 import React, {  useState } from 'react';
 import Image from 'next/image'
 import OutsideAlerter from './OutsideAlerter';
 
 const MainSearch = ({data}) => {
-  
+
+    const [isLoading, setIsLoading] = useState(false)
     const [filteredData, setFilteredData] = useState([]);
     const [wordEntered, setWordEntered] = useState("");
     const [focused, setFocused] = useState(false)
@@ -16,6 +18,7 @@ const MainSearch = ({data}) => {
 
     const handleSearch = (e) => {
       e.preventDefault()
+      setIsLoading(true)
       let trimmedWord = wordEntered.trim()
       if(!trimmedWord || trimmedWord.length<2 ||  /\d/.test(trimmedWord) ) return 
       router.push("/english_malayalam/"+ trimmedWord.toLowerCase())
@@ -52,7 +55,7 @@ const MainSearch = ({data}) => {
             <form onSubmit={handleSearch}>
              <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} placeholder='Search Word' type="mobile" />
             </form>
-            <SearchIcon style={{ color: "#808080"}} />
+            {isLoading ? <CircularProgress size="25px" style={{ color: "#808080"}}  /> : <SearchIcon style={{ color: "#808080"}} />}
           </div>
           {filteredData.length > 0 && focused===true ? 
           
@@ -60,7 +63,7 @@ const MainSearch = ({data}) => {
             <ul>
             {filteredData.slice(0,5).map((value, key) => {
             return (
-                <li onClick={()=>router.push(`/english_malayalam/${value.english_word.toLowerCase()}`)} key={key}>{value.english_word} </li>
+                <li onClick={()=>{router.push(`/english_malayalam/${value.english_word.toLowerCase()}`), setIsLoading(true)}} key={key}>{value.english_word} </li>
             );
           })}
             </ul>

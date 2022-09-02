@@ -4,9 +4,11 @@ import style from '../styles/Mainsearch.module.css'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
 import OutsideAlerter from "./OutsideAlerter";
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Result = ({word,data,searchKeywords}) => {
 
+  const [isLoading, setIsLoading] = useState(false)
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("")
   const [focused, setFocused] = useState(false)
@@ -15,10 +17,19 @@ const Result = ({word,data,searchKeywords}) => {
 
   useEffect(() => {
     setWordEntered(word)
+    setIsLoading(false)
   }, [word])
+
+  const checkEnterAgain = () => {
+    if(wordEntered === word){
+      setIsLoading(false)
+    }
+  }
 
   const handleSearch = (e) => {
     e.preventDefault()
+    setIsLoading(true)
+    checkEnterAgain()
     let trimmedWord = wordEntered.trim()
     if(!trimmedWord || trimmedWord.length<2 ||  /\d/.test(trimmedWord) ) return 
     router.push("/english_malayalam/"+ trimmedWord.toLowerCase())
@@ -49,7 +60,7 @@ const Result = ({word,data,searchKeywords}) => {
             <form onSubmit={handleSearch}>
              <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} placeholder="Search Word" type="mobile"/>
             </form>
-            <SearchIcon style={{ color: "#808080" }} />
+            {isLoading ? <CircularProgress size="25px" style={{ color: "#808080"}}  /> : <SearchIcon style={{ color: "#808080"}} />}
            </div>
            {filteredData.length > 0 && focused===true ? 
           
@@ -57,7 +68,13 @@ const Result = ({word,data,searchKeywords}) => {
             <ul>
             {filteredData.slice(0,5).map((value, key) => {
             return (
-                <li onClick={()=>{router.push(`/english_malayalam/${value.english_word.toLowerCase()}`), setFocused(false), setWordEntered(word) }} key={key}>{value.english_word} </li>
+                <li onClick={()=>{router.push(`/english_malayalam/${value.english_word.toLowerCase()}`), 
+                setFocused(false),
+                setWordEntered(word), 
+                setIsLoading(true), 
+                checkEnterAgain() }} 
+                key={key}>{value.english_word} 
+                </li>
             );
           })}
             </ul>

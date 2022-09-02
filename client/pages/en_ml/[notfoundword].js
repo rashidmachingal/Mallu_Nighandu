@@ -6,9 +6,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from 'react';
 import OutsideAlerter from "../../components/OutsideAlerter";
 import data from '../../components/SearchKeywords.json'
+import CircularProgress from '@mui/material/CircularProgress';
 
 const WordNotFound = () => {
 
+  const [isLoading, setIsLoading] = useState(false)
   const [wordEntered, setWordEntered] = useState("")
   const [filteredData, setFilteredData] = useState([]);
   const [focused, setFocused] = useState(false)
@@ -18,10 +20,19 @@ const WordNotFound = () => {
 
   useEffect(() => {
     setWordEntered(notfoundword)
+    setIsLoading(false)
   }, [notfoundword])
+
+    const checkEnterAgain = () => {
+    if(wordEntered === notfoundword){
+      setIsLoading(false)
+    }
+    }
 
   const handleSearch = (e) => {
     e.preventDefault()
+    setIsLoading(true)
+    checkEnterAgain()
     let trimmedWord = wordEntered.trim()
     if(!trimmedWord || trimmedWord.length<2 ||  /\d/.test(trimmedWord) ) return 
     router.push("/english_malayalam/"+ trimmedWord.toLowerCase())
@@ -53,7 +64,7 @@ const WordNotFound = () => {
             <form onSubmit={handleSearch}>
              <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} placeholder="Search Word" type="mobile"/>
             </form>
-            <SearchIcon style={{ color: "#808080" }} />
+            {isLoading ? <CircularProgress size="25px" style={{ color: "#808080"}}  /> : <SearchIcon style={{ color: "#808080"}} />}
           </div>
           {filteredData.length > 0 && focused===true ? 
           
@@ -61,7 +72,13 @@ const WordNotFound = () => {
             <ul>
             {filteredData.slice(0,5).map((value, key) => {
             return (
-                <li onClick={()=>{router.push(`/english_malayalam/${value.english_word.toLowerCase()}`), setFocused(false), setWordEntered(notfoundword) }} key={key}>{value.english_word} </li>
+                <li onClick={()=>{router.push(`/english_malayalam/${value.english_word.toLowerCase()}`), 
+                setFocused(false), 
+                setWordEntered(notfoundword), 
+                setIsLoading(true), 
+                checkEnterAgain() }} 
+                key={key}>{value.english_word} 
+                </li>
             );
           })}
             </ul>
