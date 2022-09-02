@@ -31,7 +31,10 @@ const Result = ({word,data,searchKeywords}) => {
     setIsLoading(true)
     checkEnterAgain()
     let trimmedWord = wordEntered.trim()
-    if(!trimmedWord || trimmedWord.length<2 ||  /\d/.test(trimmedWord) ) return 
+    if(!trimmedWord || trimmedWord.length<2 ||  /\d/.test(trimmedWord) ) {
+      setIsLoading(false)
+      return 
+    }
     router.push("/english_malayalam/"+ trimmedWord.toLowerCase())
   }
 
