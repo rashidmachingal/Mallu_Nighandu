@@ -77,7 +77,7 @@
 }
 
 .searchSuggetion{
-  position: fixed;
+  position: absolute;
   margin-top: 4.1rem;
   width: 24rem;
   height: auto;
@@ -120,6 +120,9 @@
 /* Responsive Design */
 
 @media (max-width: 680px) {
+  .homeSearch{
+    width: 82%;
+  }
   .searchContainer{
     width: 82%;
   }
@@ -129,7 +132,13 @@
   .homeBox {
     width: 95%;
   }
+}
+
+@media (max-width:416px) {
   .homeSearch{
-    width: 82%;
+    width: 93%;
+  }
+  .searchSuggetion{
+    width: 71.6%;
   }
 }

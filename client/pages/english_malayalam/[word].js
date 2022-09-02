@@ -1,13 +1,14 @@
 import Result from "../../components/Result"
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import SearchKeywords from "../../components/SearchKeywords.json";
 
 
 const WordPage = ({data}) => {
   const router = useRouter()
   const { word } = router.query
   return (
-    <Result word={word} data={data} />
+    <Result word={word} data={data} searchKeywords={SearchKeywords} />
   )
 }
 
