@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../styles/Result.module.css'
 import CloseIcon from '@mui/icons-material/Close';
 import pos from '../components/AddNewWord/partOfSpeech.js'
@@ -12,7 +12,8 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 
 const AddNewMeaning = ({word,setIsAddNewActive}) => {
-
+  
+  const [isValid, setIsValid] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
   const [open, setOpen] = useState(false);
   const [partOf, setPartOf] = useState("")
@@ -32,6 +33,10 @@ const AddNewMeaning = ({word,setIsAddNewActive}) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if(definition === ""){
+      setIsValid(true)
+      return
+    }
     setIsClicked(true)
     let newData = [
       {
@@ -74,6 +79,7 @@ const AddNewMeaning = ({word,setIsAddNewActive}) => {
           <div className={styles.addNewFormGroup}>
             <label>അർഥം</label>
             <input onChange={(e)=>setDefintion(e.target.value)} value={definition} placeholder='Meaning' type="text" />
+            {isValid ? <span>ദയവായി കളം പൂരിപ്പിക്കുക</span> : null}
           </div>
           <div className={styles.addNewFormGroup}>
             <button disabled={isClicked} >ADD</button>

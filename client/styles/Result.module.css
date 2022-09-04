@@ -273,6 +273,12 @@
   color: white;
 }
 
+.addNewFormGroup span{
+  color: red;
+  font-size: 14px;
+  margin-top: 0.6px;
+}
+
 .addNewFormGroup button:hover{
   background: rgba(0, 0, 0, 0.751);
 }
