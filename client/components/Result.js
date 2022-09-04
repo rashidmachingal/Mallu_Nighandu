@@ -6,16 +6,27 @@ import { useEffect, useState } from "react";
 import OutsideAlerter from "./OutsideAlerter";
 import CircularProgress from '@mui/material/CircularProgress';
 import AddNewMeaning from "./AddNewMeaning";
+import EditIcon from '@mui/icons-material/Edit';
+import Tooltip from '@mui/material/Tooltip';
 
 const Result = ({word,data,searchKeywords}) => {
 
   const [isAddNewActive, setIsAddNewActive] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [hoveredCart, setHoveredCart] = useState(-1);
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("")
   const [focused, setFocused] = useState(false)
   const router = useRouter()
   const OnFocus = () => setFocused(true)
+
+  const showCartHandler = (id)=>{
+    setHoveredCart(id);
+}
+
+const hideCartHandler=()=>{
+      setHoveredCart(-1)
+}
 
   useEffect(() => {
     setWordEntered(word)
@@ -99,7 +110,17 @@ const Result = ({word,data,searchKeywords}) => {
               return(
                 <div key={id} className={styles.resultItems}>
                   <ul>
-                    <li><span>{id+1}.</span> {i.malayalam_definition} {i.part_of_speech === "-" | "" ? null : <i>({i.part_of_speech})</i>}</li>
+                    <li onMouseLeave={hideCartHandler} onMouseEnter={()=>showCartHandler(id)} ><span>{id+1}.</span> {i.malayalam_definition} 
+                    {i.part_of_speech === "-" | "" ? null : <i>({i.part_of_speech})</i>} 
+                    <Tooltip title="തെറ്റ് തിരുത്തുക" >
+                     <EditIcon 
+                      style={{color:"rgba(0, 0, 0, 0.646)",
+                      cursor:"pointer", 
+                      fontSize:"13px", 
+                      marginLeft:"3px",
+                      display:hoveredCart === id? 'initial':'none'}} />
+                     </Tooltip>
+                    </li>
                   </ul>
                 </div>
               )

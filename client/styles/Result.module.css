@@ -130,7 +130,7 @@
   font-weight: 800;
 }
 
-.resultItems li i:last-child{
+.resultItems li i{
   font-weight: 600;
   color: rgba(0, 0, 0, 0.364);
   font-size: 13.5px;
