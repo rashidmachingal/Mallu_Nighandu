@@ -152,6 +152,117 @@
   cursor: pointer;
 }
 
+/* Add New Meaning */
+
+.addNewContainer{
+  width: 100vw;
+  position: fixed;
+  bottom:0%;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+.addNewBox{
+  width: 36rem;
+  height: 16rem;
+  background: rgb(240, 240, 240);
+  border: 0.1px solid rgba(0, 0, 0, 0.42);
+  border-radius: 8px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+}
+
+.addNewClose{
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  cursor: pointer;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(134, 134, 134, 0.375);
+}
+
+.addNewClose:hover{
+  background: rgba(134, 134, 134, 0.639);
+}
+
+.addNewTitle{
+  text-align: center;
+  margin-top: 0.4rem;
+  font-family: "Manjari", sans-serif;
+}
+
+.addNewTitle h4{
+  font-weight: 400;
+}
+
+.addNewTitle span{
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Add New Form */
+
+.addNewForm{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addNewFormGroup{
+  width: 80%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.addNewFormGroup div{
+  margin-top: 0.4rem;
+  width: 100%;
+  height: 2.3rem;
+  background: white;
+  box-shadow: 0 0 2px rgba(117, 113, 113, 0.539);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-family: "Mulish", sans-serif;
+  cursor: not-allowed;
+}
+
+.addNewFormGroup input{
+  margin-top: 0.4rem;
+  width: 100%;
+  height: 2.3rem;
+  background: white;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-family: "Mulish", sans-serif;
+  outline: none;
+  border: none;
+}
+
+.addNewFormGroup button{
+  width: 100%;
+  height: 2.3rem;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.825);
+  color: white;
+}
+
+.addNewFormGroup button:hover{
+  background: rgba(0, 0, 0, 0.751);
+}
+
 /* Responsive Design */
 
 @media (max-width: 680px) {
@@ -167,10 +278,21 @@
   .resultSearch{
     width: 82%;
   }
+  .addNewBox{
+   width: 96%; 
+  }
+  .addNewTitle h4{
+    font-size: 15px;
+  }
 }
 
 @media (max-width:416px) {
   .resultSearch{
     width: 93%;
+  }
+}
+@media (max-width:408px) {
+  .addNewClose{
+    top: 20px;
   }
 }

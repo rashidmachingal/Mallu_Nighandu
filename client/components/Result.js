@@ -5,9 +5,11 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
 import OutsideAlerter from "./OutsideAlerter";
 import CircularProgress from '@mui/material/CircularProgress';
+import AddNewMeaning from "./AddNewMeaning";
 
 const Result = ({word,data,searchKeywords}) => {
 
+  const [isAddNewActive, setIsAddNewActive] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("")
@@ -18,6 +20,9 @@ const Result = ({word,data,searchKeywords}) => {
   useEffect(() => {
     setWordEntered(word)
     setIsLoading(false)
+    return () => {
+      setFocused(false)
+    }
   }, [word])
 
   const checkEnterAgain = () => {
@@ -102,13 +107,14 @@ const Result = ({word,data,searchKeywords}) => {
           </div>
 
           <div className={styles.resultAddEdit}>
-            <button>പുതിയ അർഥം ചേർക്കുക</button>
+            <button onClick={()=>setIsAddNewActive(true)}>പുതിയ അർഥം ചേർക്കുക</button>
             <span>-</span>
             <button>തിരുത്തുക</button>
           </div>
 
         </div>
       </div>
+      {isAddNewActive ? <AddNewMeaning setIsAddNewActive={setIsAddNewActive} /> : null}
     </>
   )
 }
