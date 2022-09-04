@@ -5,13 +5,33 @@ import DeleteIcon from '@mui/icons-material/DeleteOutline';
 import Tooltip from '@mui/material/Tooltip';
 import swal from 'sweetalert';
 import axios from 'axios'
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 
 const AddNewWord = () => {
 
+  const [open, setOpen] = useState(false);
   const [word, setWord] = useState("")
-  const [partOf, setPartOf] = useState("Noun")
+  const [partOf, setPartOf] = useState("-")
   const [definition, setDefintion] = useState("")
   const [mainState, setMainState] = useState([])
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const handleAddClick = (e) => {
     e.preventDefault()
@@ -42,7 +62,7 @@ const AddNewWord = () => {
     const res = await axios.post("http://localhost:5000/api/add-new-word",mainState)
     console.log(res.data)
     if (res.data.status==="OK"){
-      return swal("You Have Successfully Added New Word");
+      handleClick()
     }
   }
 
@@ -112,6 +132,11 @@ const AddNewWord = () => {
           </form>
         </div>
       </div>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Successfully Added New Meaning
+        </Alert>
+    </Snackbar>
     </>
   )
 }

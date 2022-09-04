@@ -16,7 +16,7 @@ const AddNewMeaning = ({word,setIsAddNewActive}) => {
   const [isValid, setIsValid] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
   const [open, setOpen] = useState(false);
-  const [partOf, setPartOf] = useState("")
+  const [partOf, setPartOf] = useState("-")
   const [definition, setDefintion] = useState("")
 
   const handleClick = () => {
