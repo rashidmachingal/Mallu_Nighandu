@@ -114,7 +114,7 @@ const Result = ({word,data,searchKeywords}) => {
 
         </div>
       </div>
-      {isAddNewActive ? <AddNewMeaning setIsAddNewActive={setIsAddNewActive} /> : null}
+      {isAddNewActive ? <AddNewMeaning word={word} setIsAddNewActive={setIsAddNewActive} /> : null}
     </>
   )
 }

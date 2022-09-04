@@ -1,5 +1,8 @@
 const partOfSpeech = [
     {
+        pos:"-"
+    },
+    {
         pos:"noun"
     },
     {

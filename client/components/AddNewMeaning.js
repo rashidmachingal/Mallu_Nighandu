@@ -1,8 +1,10 @@
 import React from 'react'
 import styles from '../styles/Result.module.css'
 import CloseIcon from '@mui/icons-material/Close';
+import pos from '../components/AddNewWord/partOfSpeech.js'
 
-const AddNewMeaning = ({setIsAddNewActive}) => {
+const AddNewMeaning = ({word,setIsAddNewActive}) => {
+
   return (
     <div className={styles.addNewContainer}>
         <div className={styles.addNewBox}>
@@ -10,12 +12,18 @@ const AddNewMeaning = ({setIsAddNewActive}) => {
           <CloseIcon fontSize="16px" />
           </div>
          <div className={styles.addNewTitle}>
-          <h4><span>result</span> എന്ന വാക്കിന് മറ്റൊരു അർഥം ചേർക്കുക</h4>
+          <h4><span>{word}</span> എന്ന വാക്കിന് മറ്റൊരു അർഥം ചേർക്കുക</h4>
          </div>
          <div className={styles.addNewForm}>
           <div className={styles.addNewFormGroup}>
             <label>ഇംഗ്ലീഷ് പദം</label>
-            <div>result</div>
+            <div>{word}</div>
+          </div>
+          <div className={styles.addNewFormGroup}>
+            <label>രൂപം</label>
+            <select>
+                  {pos.map((i)=>{return  <option value={i.pos} key={i.pos} >{i.pos}</option>})}
+            </select>
           </div>
           <div className={styles.addNewFormGroup}>
             <label>അർഥം</label>
