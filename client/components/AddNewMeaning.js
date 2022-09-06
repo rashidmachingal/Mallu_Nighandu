@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from '../styles/Result.module.css'
 import CloseIcon from '@mui/icons-material/Close';
 import pos from '../components/AddNewWord/partOfSpeech.js'

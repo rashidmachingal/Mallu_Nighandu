@@ -8,6 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import AddNewMeaning from "./AddNewMeaning";
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
+import EditMeaning from "./EditMeaning";
 
 const Result = ({word,data,searchKeywords}) => {
 
@@ -17,16 +18,13 @@ const Result = ({word,data,searchKeywords}) => {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("")
   const [focused, setFocused] = useState(false)
+  const [isEditActive, setIsEditActive] = useState(false)
+  const [editWord, setEditWord] = useState("")
   const router = useRouter()
-  const OnFocus = () => setFocused(true)
-
-  const showCartHandler = (id)=>{
-    setHoveredCart(id);
-}
-
-const hideCartHandler=()=>{
-      setHoveredCart(-1)
-}
+  
+const OnFocus = () => setFocused(true)
+const showCartHandler = id => setHoveredCart(id)
+const hideCartHandler= () => setHoveredCart(-1)
 
   useEffect(() => {
     setWordEntered(word)
@@ -67,7 +65,11 @@ const hideCartHandler=()=>{
     }else{
       setFilteredData(newFilter);
     }
+  }
 
+  const handleEditClick = (i) => {
+    setEditWord(i)
+    setIsEditActive(true)
   }
 
   return (
@@ -112,14 +114,13 @@ const hideCartHandler=()=>{
                   <ul>
                     <li onMouseLeave={hideCartHandler} onMouseEnter={()=>showCartHandler(id)} ><span>{id+1}.</span> {i.malayalam_definition} 
                     {i.part_of_speech === "-" | "" ? null : <i>({i.part_of_speech})</i>} 
-                    <Tooltip title="തെറ്റ് തിരുത്തുക" >
                      <EditIcon 
+                      onClick={()=>handleEditClick(i)}
                       style={{color:"rgba(0, 0, 0, 0.646)",
                       cursor:"pointer", 
                       fontSize:"13px", 
                       marginLeft:"3px",
                       display:hoveredCart === id? 'initial':'none'}} />
-                     </Tooltip>
                     </li>
                   </ul>
                 </div>
@@ -136,6 +137,8 @@ const hideCartHandler=()=>{
         </div>
       </div>
       {isAddNewActive ? <AddNewMeaning word={word} setIsAddNewActive={setIsAddNewActive} /> : null}
+     
+      {isEditActive ?  <EditMeaning editWord={editWord} setIsEditActive={setIsEditActive} /> : null }
     </>
   )
 }
