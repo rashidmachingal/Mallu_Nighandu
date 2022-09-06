@@ -50,7 +50,7 @@ router.get("/get-search-keywords", async (req,res) => {
 })
 
 // update word meaning
-router.put("/update-word-meaning/:id", async (req,res) => {
+router.post("/update-word-meaning/:id", async (req,res) => {
   try {
     const updatedWord = await Meaning.findByIdAndUpdate(
       req.params.id,
@@ -59,7 +59,7 @@ router.put("/update-word-meaning/:id", async (req,res) => {
       },
       {new : true}
     )
-    res.status(200).json(updatedWord);
+    res.json({status:"OK",updatedWord})
   } catch (error) {
     res.status(500).json(error);
   }

@@ -27,7 +27,6 @@ const AddNewMeaning = ({word,setIsAddNewActive}) => {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen(false);
   };
 
@@ -46,7 +45,6 @@ const AddNewMeaning = ({word,setIsAddNewActive}) => {
       }
     ]
     const res = await axios.post("http://localhost:5000/api/add-new-word",newData)
-    console.log(res.data)
     if (res.data.status==="OK"){
       handleClick()
       setTimeout(() => {
