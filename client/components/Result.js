@@ -130,8 +130,6 @@ const hideCartHandler= () => setHoveredCart(-1)
 
           <div className={styles.resultAddEdit}>
             <button onClick={()=>setIsAddNewActive(true)}>പുതിയ അർഥം ചേർക്കുക</button>
-            <span>-</span>
-            <button>തിരുത്തുക</button>
           </div>
 
         </div>
