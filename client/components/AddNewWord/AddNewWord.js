@@ -74,12 +74,6 @@ const AddNewWord = () => {
           <div className={styles.addTitle}>
             <h2>പുതിയ ഒരു പദം ചേര്‍ക്കുക</h2>
           </div>
-          <div className={styles.addNotice}>
-            <p>
-              മല്ലു നിഘണ്ടുവിൽ പുതിയ ഒരു പദം ചേര്‍ക്കാൻ ലോഗിൻ ചെയ്യണമെന്നില്ല
-              എന്നാൽ ലോഗിൻ ചെയ്താൽ മറ്റു ഗുണങ്ങൾ ലഭിക്കുന്നതാണ് 
-            </p>
-          </div>
           <form onSubmit={handleSubmit} autoComplete="off" className={styles.addForm}>
             <div className={styles.addFormGroup}>
               <label>ഇംഗ്ലീഷ് പദം</label>

@@ -10,10 +10,10 @@ const Content = () => {
           </div>
           <div className={styles.contentDesc}>
             <p>
-              Mallu Nighandu is an upcoming English-Malayalam online dictionary
-              web application that mainly provides the Malayalam meaning of
-              English words. Mallu Nighandu allows users to edit the meaning of
-              words and add new words.
+              Mallu Nighandu is an English-Malayalam online dictionary web
+              application that mainly provides the Malayalam meaning of English
+              words. Mallu Nighandu allows users to edit and update the meaning
+              of words and add new words.
             </p>
           </div>
         </div>
