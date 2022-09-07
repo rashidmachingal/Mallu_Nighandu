@@ -11,7 +11,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 
-const AddNewMeaning = ({word,setIsAddNewActive}) => {
+const AddNewMeaning = ({word,setIsAddNewActive,setIsUpdated,isUpdated}) => {
   
   const [isValid, setIsValid] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
@@ -47,6 +47,7 @@ const AddNewMeaning = ({word,setIsAddNewActive}) => {
     const res = await axios.post("http://localhost:5000/api/add-new-word",newData)
     if (res.data.status==="OK"){
       handleClick()
+      setIsUpdated(!isUpdated)
       setTimeout(() => {
         setIsAddNewActive(false)
       }, 1600);

@@ -2,13 +2,30 @@ import Result from "../../components/Result"
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import SearchKeywords from "../../components/SearchKeywords.json";
+import { useEffect, useState } from "react";
 
 
 const WordPage = ({data}) => {
+  const [isUpdated, setIsUpdated] = useState(false)
   const router = useRouter()
   const { word } = router.query
+
+  useEffect(() => {
+    const refreshData = () => {
+      router.replace(router.asPath);
+    }
+    refreshData()
+  }, [isUpdated])
+  
+  
   return (
-    <Result word={word} data={data} searchKeywords={SearchKeywords} />
+    <Result 
+     word={word} 
+     data={data} 
+     searchKeywords={SearchKeywords} 
+     setIsUpdated={setIsUpdated}
+     isUpdated={isUpdated} 
+    />
   )
 }
 

@@ -10,7 +10,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
 import EditMeaning from "./EditMeaning";
 
-const Result = ({word,data,searchKeywords}) => {
+const Result = ({word,data,searchKeywords,setIsUpdated,isUpdated}) => {
 
   const [isAddNewActive, setIsAddNewActive] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -134,9 +134,21 @@ const hideCartHandler= () => setHoveredCart(-1)
 
         </div>
       </div>
-      {isAddNewActive ? <AddNewMeaning word={word} setIsAddNewActive={setIsAddNewActive} /> : null}
+      {isAddNewActive ? 
+      <AddNewMeaning 
+       word={word} 
+       setIsAddNewActive={setIsAddNewActive} 
+       setIsUpdated={setIsUpdated} 
+       isUpdated={isUpdated} /> 
+       : null}
      
-      {isEditActive ?  <EditMeaning editWord={editWord} setIsEditActive={setIsEditActive} /> : null }
+      {isEditActive ?  
+      <EditMeaning 
+       editWord={editWord} 
+       setIsEditActive={setIsEditActive}
+       setIsUpdated={setIsUpdated} 
+       isUpdated={isUpdated} /> 
+      : null }
     </>
   )
 }

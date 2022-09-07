@@ -10,7 +10,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const EditMeaning = ({editWord,setIsEditActive}) => {
+const EditMeaning = ({editWord,setIsEditActive,setIsUpdated,isUpdated}) => {
 
     const [isValid, setIsValid] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
@@ -47,6 +47,7 @@ const EditMeaning = ({editWord,setIsEditActive}) => {
       const res = await axios.post(`http://localhost:5000/api/update-word-meaning/`+editWord._id,updateData)
       if (res.data.status==="OK"){
         handleClick()
+        setIsUpdated(!isUpdated)
         setTimeout(() => {
           setIsEditActive(false)
         }, 1600);
