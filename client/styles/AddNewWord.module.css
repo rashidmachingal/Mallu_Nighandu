@@ -218,6 +218,48 @@
     bottom: 1rem;
 }
 
+/* Message Modal */
+
+.messageModal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30rem;
+    height: 10rem;
+    background-color: white;
+    border-radius: 6px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    font-family: "Manjari", sans-serif;
+}
+
+.messageModal h3{
+    margin-top: 0.6rem;
+    color: orange;
+}
+
+.messageModal p{
+    margin-top: 0.6rem;
+    text-align: center;
+}
+
+.messageModal button{
+    margin-top: 0.6rem;
+    width: 6rem;
+    height: 2rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(149, 146, 146, 0.362);
+}
+
+.messageModal button:hover{
+    background: rgba(120, 116, 116, 0.764);
+    cursor: pointer;
+}
 
 
 /* Responsive Design */

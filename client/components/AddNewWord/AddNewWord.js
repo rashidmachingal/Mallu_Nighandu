@@ -7,6 +7,7 @@ import swal from 'sweetalert';
 import axios from 'axios'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import MessageModal from "./MessageModal";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -20,6 +21,8 @@ const AddNewWord = () => {
   const [partOf, setPartOf] = useState("-")
   const [definition, setDefintion] = useState("")
   const [mainState, setMainState] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [existWord, setExistWord] = useState("")
 
   const handleClick = () => {
     setOpen(true);
@@ -61,6 +64,10 @@ const AddNewWord = () => {
     setMainState([])
     const res = await axios.post("http://localhost:5000/api/add-new-word",mainState)
     console.log(res.data)
+    if(res.data.status==="NO"){
+      setIsModalOpen(true)
+      setExistWord(res.data.eng_word)
+    }
     if (res.data.status==="OK"){
       handleClick()
     }
@@ -131,6 +138,11 @@ const AddNewWord = () => {
           Successfully Added New Meaning
         </Alert>
     </Snackbar>
+    {isModalOpen ? 
+    <MessageModal 
+     isModalOpen={isModalOpen} 
+     setIsModalOpen={setIsModalOpen} 
+     existWord={existWord} /> :null}
     </>
   )
 }
