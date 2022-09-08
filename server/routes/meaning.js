@@ -8,6 +8,8 @@ router.post("/add-new-word", async (req, res) => {
   try {
     const allItems = req.body;
     const word = allItems[0].english_word
+    const isWordAlready = await Meaning.findOne({ english_word: word })
+    if(isWordAlready!=null) return res.json({status:"NO"})
     allItems.map( async (i) => {
       const newWord = new Meaning({
         english_word: i.english_word,
