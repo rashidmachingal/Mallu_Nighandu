@@ -16,11 +16,13 @@ const WordNotFound = () => {
   const [focused, setFocused] = useState(false)
   const router = useRouter()
   const { notfoundword } = router.query
+
   const OnFocus = () => setFocused(true)
 
   useEffect(() => {
     setWordEntered(notfoundword)
     setIsLoading(false)
+   
   }, [notfoundword])
 
     const checkEnterAgain = () => {
@@ -65,7 +67,7 @@ const WordNotFound = () => {
         <OutsideAlerter setFocused={setFocused}>
           <div className={styles.notSearch}>
             <form onSubmit={handleSearch}>
-             <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} placeholder="Search Word" type="mobile"/>
+             <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered || ""} placeholder="Search Word" type="mobile"/>
             </form>
             {isLoading ? <CircularProgress size="25px" style={{ color: "#808080"}}  /> : <SearchIcon style={{ color: "#808080"}} />}
           </div>
@@ -91,7 +93,7 @@ const WordNotFound = () => {
       <div className={styles.notMessage}>
         <h3>ക്ഷമിക്കുക</h3>
         <p>നിങ്ങള്‍ അന്വേഷിച്ച "{notfoundword}" എന്ന പദത്തിന്റെ അര്ത്ഥം കണ്ടെത്താനായില്ല. സാധ്യമെങ്കില്‍, ദയവായി നിഘണ്ടുവില്‍ ചേര്‍ക്കുക.</p>
-        <button onClick={()=>router.push(`/add-new-word`)} >{notfoundword} നിഘണ്ടുവിൽ ചേർക്കുക </button>
+        <button onClick={()=>router.push(`/add-new-word?notfoundword=${notfoundword}`)} >{notfoundword} നിഘണ്ടുവിൽ ചേർക്കുക </button>
       </div>
       </div>
     </div>

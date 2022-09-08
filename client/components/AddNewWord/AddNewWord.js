@@ -1,5 +1,5 @@
 import styles from "../../styles/AddNewWord.module.css";
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import pos from './partOfSpeech.js'
 import DeleteIcon from '@mui/icons-material/DeleteOutline';
 import Tooltip from '@mui/material/Tooltip';
@@ -8,6 +8,7 @@ import axios from 'axios'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import MessageModal from "./MessageModal";
+import { useRouter } from 'next/router'
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -23,19 +24,25 @@ const AddNewWord = () => {
   const [mainState, setMainState] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [existWord, setExistWord] = useState("")
+  const router = useRouter()
+
+  useEffect(() => {
+    const { notfoundword } = router.query
+    if(notfoundword){
+      setWord(notfoundword)
+    }
+  }, [])
+  
 
   const handleClick = () => {
     setOpen(true);
   };
-
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen(false);
   };
-
   const handleAddClick = (e) => {
     e.preventDefault()
     if(definition==="") return swal("ദയവായി മലയാള വ്യാഖ്യാനം എന്ന കളം പൂരിപ്പിക്കുക!");
