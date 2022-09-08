@@ -225,8 +225,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 30rem;
-    height: 10rem;
+    width: 35rem;
     background-color: white;
     border-radius: 6px; 
     display: flex;
@@ -235,16 +234,20 @@
     justify-content: center;
     padding: 3px;
     font-family: "Manjari", sans-serif;
+    padding-bottom:10px;
 }
 
 .messageModal h3{
     margin-top: 0.6rem;
     color: orange;
+    text-align: center;
+    font-size: 16px;
 }
 
 .messageModal p{
     margin-top: 0.6rem;
     text-align: center;
+    font-size: 14px;
 }
 
 .messageModal button{
@@ -279,6 +282,9 @@
         width: 90%;
     }
     .addSection{
+        width: 95%;
+    }
+    .messageModal{
         width: 95%;
     }
   }
