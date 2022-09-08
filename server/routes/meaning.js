@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Meaning = require("../models/Meaning");
-const fs = require("fs")
-
+const {transporter} = require('./mailConfig')
 
 // add new word
 router.post("/add-new-word", async (req, res) => {
@@ -60,6 +59,20 @@ router.post("/update-word-meaning/:id", async (req,res) => {
       {new : true}
     )
     res.json({status:"OK",updatedWord})
+
+    let mailOptions = {
+      from: '"Mallu Nighandu" <therashileo@gmail.com>',
+      to: 'rashileocontact@gmail.com',
+      subject: `${updatedWord.english_word.toUpperCase()} Word Meaning Updated`,
+      text: `Hello Rashid,\n
+      Updated Word Meaning Details\n
+      English Word: ${updatedWord.english_word}\n
+      Part Of Speech: ${updatedWord.part_of_speech}\n
+      Malayalam Definition: ${updatedWord.malayalam_definition}\n
+      Id: ${updatedWord._id}`
+    };
+
+    transporter.sendMail(mailOptions)
   } catch (error) {
     res.status(500).json(error);
   }
