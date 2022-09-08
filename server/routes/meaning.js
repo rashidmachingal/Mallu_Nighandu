@@ -7,6 +7,7 @@ const {transporter} = require('./mailConfig')
 router.post("/add-new-word", async (req, res) => {
   try {
     const allItems = req.body;
+    const word = allItems[0].english_word
     allItems.map( async (i) => {
       const newWord = new Meaning({
         english_word: i.english_word,
@@ -16,6 +17,15 @@ router.post("/add-new-word", async (req, res) => {
       newWord.save();
       res.json({status:"OK"})
     });
+
+    let mailOptions = {
+      from: '"Mallu Nighandu" <therashileo@gmail.com>',
+      to: 'rashileocontact@gmail.com',
+      subject: `New Word Added to Mallu Nigandu`,
+      text: `New Word: ${word}`
+    };
+
+    transporter.sendMail(mailOptions)
   } catch (error) {
     res.json(error);
   }
@@ -25,12 +35,10 @@ router.post("/add-new-word", async (req, res) => {
 router.get("/search/:word", async (req, res) => {
   try {
     let word = await Meaning.find({ english_word: req.params.word });
-
     if (word.length === 0) {
       const word = [{ status: "notfound", search_word: req.params.word }];
       return res.json(word);
     }
-
     res.json(word);
   } catch (error) {
     res.json(error);
