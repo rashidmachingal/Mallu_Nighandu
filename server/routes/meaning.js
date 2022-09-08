@@ -37,17 +37,6 @@ router.get("/search/:word", async (req, res) => {
   }
 });
 
-// get search_keywords
-router.get("/get-search-keywords", async (req,res) => {
-  try {
-    let search_keywords = await Meaning.find({ english_word: req.params.word });
-    res.json(search_keywords)
-    
-  } catch (error) {
-    res.json(error)
-  }
-})
-
 // update word meaning
 router.post("/update-word-meaning/:id", async (req,res) => {
   try {
