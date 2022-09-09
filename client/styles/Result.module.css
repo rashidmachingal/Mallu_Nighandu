@@ -7,16 +7,6 @@
   justify-content: center;
 }
 
-.resultBox {
-  box-shadow: 0 0 2px rgba(117, 113, 113, 0.539);
-  width: 40rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  background: #2b3d4e34;
-}
-
 /* Result Search */
 
 .resultSearchContainer{
@@ -291,9 +281,6 @@
   }
   .resultSearchContainer{
     width: 82%;
-  }
-  .resultBox {
-    width: 95%;
   }
   .resultSearch{
     width: 82%;

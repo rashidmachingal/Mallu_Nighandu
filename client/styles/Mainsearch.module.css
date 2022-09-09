@@ -8,14 +8,6 @@
 }
 
 .homeBox {
-  box-shadow: 0 0 2px rgba(117, 113, 113, 0.539);
-  width: 40rem;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  background: #2b3d4e34;
   padding-bottom: 4rem;
 }
 

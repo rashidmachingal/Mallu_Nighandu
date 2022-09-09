@@ -46,7 +46,7 @@ const MainSearch = ({data}) => {
   return (
     <>
     <div className={styles.homeContainer}>
-        <div className={styles.homeBox}>
+        <div className={`${styles.homeBox} mainBox `}>
          <div className={styles.homeImage}>
            <Image width="140px" height="130px" src="https://scholar.rotaractmora.org/assets/img/cover-01.png" alt="" />
           </div>

@@ -11,13 +11,6 @@
 /* Add Box */
 
 .addBox{
-    box-shadow: 0 0 2px rgba(117, 113, 113, 0.539);
-    width: 40rem;
-    border-radius: 10px;
-    background: #2b3d4e34;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 1rem;
 }
 
@@ -98,11 +91,6 @@
     border-radius: 4px;
 }
 
-.addSectionH{
-    margin-top: 0.6rem;
-    margin-left: 0.6rem;
-    padding-bottom: 1rem;
-}
 
 .addFormSection{
     width: 100%;
@@ -282,7 +270,7 @@
         width: 90%;
     }
     .addSection{
-        width: 95%;
+        width: 90%;
     }
     .messageModal{
         width: 95%;

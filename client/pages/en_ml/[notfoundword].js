@@ -63,7 +63,7 @@ const WordNotFound = () => {
   return (
     <>
     <div className={styles.notContainer} >
-      <div className={styles.notBox}>
+      <div className={`${styles.notBox} mainBox`}>
         <OutsideAlerter setFocused={setFocused}>
           <div className={styles.notSearch}>
             <form onSubmit={handleSearch}>

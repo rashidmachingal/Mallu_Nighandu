@@ -84,7 +84,7 @@ const AddNewWord = () => {
   return (
     <>
     <div className={styles.addContainer}>
-        <div className={styles.addBox}>
+        <div className={`${styles.addBox} mainBox`}>
           <div className={styles.addTitle}>
             <h2>പുതിയ ഒരു പദം ചേര്‍ക്കുക</h2>
           </div>

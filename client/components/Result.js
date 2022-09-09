@@ -75,7 +75,7 @@ const hideCartHandler= () => setHoveredCart(-1)
   return (
     <>
      <div className={styles.resultContainer}>
-        <div className={styles.resultBox}>
+        <div className="mainBox">
           <OutsideAlerter setFocused={setFocused}>
            <div className={styles.resultSearch}>
             <form onSubmit={handleSearch}>
