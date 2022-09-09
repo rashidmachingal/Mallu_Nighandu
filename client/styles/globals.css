@@ -1,8 +1,11 @@
+@import url("https://smc.org.in/fonts/manjari.css");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden; /* Hide vertical scrollbar */
+  font-family: "Manjari", sans-serif;
 }
 
 .mainBox{

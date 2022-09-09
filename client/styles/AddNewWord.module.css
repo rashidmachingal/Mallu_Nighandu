@@ -1,11 +1,7 @@
-@import url("https://smc.org.in/fonts/manjari.css");
-
-
 .addContainer{
     width: 100vw;
     display: flex;
     justify-content: center;
-    font-family: "Manjari", sans-serif;
 }
 
 /* Add Box */
@@ -221,7 +217,6 @@
     align-items: center;
     justify-content: center;
     padding: 3px;
-    font-family: "Manjari", sans-serif;
     padding-bottom:10px;
 }
 
