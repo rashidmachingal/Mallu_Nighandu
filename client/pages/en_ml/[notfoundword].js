@@ -73,7 +73,7 @@ const WordNotFound = () => {
           </div>
           {filteredData.length > 0 && focused===true ? 
           
-          <div className={style.searchSuggetion}>
+          <div className="searchSuggetion">
             <ul>
             {filteredData.slice(0,5).map((value, key) => {
             return (

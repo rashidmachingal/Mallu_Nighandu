@@ -62,7 +62,7 @@ const MainSearch = ({data}) => {
           </div>
           {filteredData.length > 0 && focused===true ? 
           
-          <div className={styles.searchSuggetion}>
+          <div className="searchSuggetion">
             <ul>
             {filteredData.slice(0,5).map((value, key) => {
             return (

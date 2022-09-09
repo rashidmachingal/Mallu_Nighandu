@@ -1,13 +1,11 @@
 import SearchIcon from "@mui/icons-material/Search";
 import styles from '../styles/Result.module.css'
-import style from '../styles/Mainsearch.module.css'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
 import OutsideAlerter from "./OutsideAlerter";
 import CircularProgress from '@mui/material/CircularProgress';
 import AddNewMeaning from "./AddNewMeaning";
 import EditIcon from '@mui/icons-material/Edit';
-import Tooltip from '@mui/material/Tooltip';
 import EditMeaning from "./EditMeaning";
 
 const Result = ({word,data,searchKeywords,setIsUpdated,isUpdated}) => {
@@ -85,7 +83,7 @@ const hideCartHandler= () => setHoveredCart(-1)
            </div>
            {filteredData.length > 0 && focused===true ? 
           
-          <div className={style.searchSuggetion}>
+          <div className="searchSuggetion">
             <ul>
             {filteredData.slice(0,5).map((value, key) => {
             return (

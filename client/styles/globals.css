@@ -19,8 +19,43 @@
   background: #2b3d4e34;
 }
 
+/* Serch Suggetion */
+
+.searchSuggetion{
+  position: absolute;
+  margin-top: 4.1rem;
+  width: 24rem;
+  height: auto;
+  background: white;
+  box-shadow: 0px 0px 5px 1px #00000026;
+  border-radius: 6px;
+  z-index: 3;
+}
+
+.searchSuggetion li{
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.searchSuggetion li:hover{
+  background: rgba(205, 205, 205, 0.736);
+  cursor: pointer;
+}
+
+
 @media (max-width: 680px) {
   .mainBox {
     width: 95%;
+  }
+  .searchSuggetion{
+    width: 63.6%;
+  }
+}
+
+@media (max-width:416px) {
+  .searchSuggetion{
+    width: 71.6%;
   }
 }
