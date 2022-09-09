@@ -7,11 +7,13 @@ dotenv.config();
 
 //routes
 const meaningRoute = require("./routes/meaning.js")
+const contactRoute = require("./routes/contact.js")
 
 // middlewares
 app.use(cors());
 app.use(express.json());
 app.use("/api", meaningRoute);
+app.use("/api", contactRoute);
 
 // mongodb connection + // server configuration
 mongoose
