@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import SearchKeywords from "../../components/SearchKeywords.json";
 import { useEffect, useState } from "react";
-
+import Head from 'next/head'
 
 const WordPage = ({data}) => {
   const [isUpdated, setIsUpdated] = useState(false)
@@ -19,13 +19,19 @@ const WordPage = ({data}) => {
   
   
   return (
+    <>
+    <Head>
+      <title>{word} | Malayalam Meaning of {word} - Mallu Nighandu</title>
+      <meta name="description" content={`What is ${word} meaning or definition in Malayalam?`} />
+      <meta name="keywords" content={`${word} meaning in Malayalam, Malayalam meaning of ${word}, ${word} enna vakkinte artham, ${word} Malayalam meannig`} />
+    </Head>
     <Result 
      word={word} 
      data={data} 
      searchKeywords={SearchKeywords} 
      setIsUpdated={setIsUpdated}
-     isUpdated={isUpdated} 
-    />
+     isUpdated={isUpdated}/>
+    </>
   )
 }
 

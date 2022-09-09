@@ -6,6 +6,7 @@ import { useState } from 'react';
 import OutsideAlerter from "../../components/OutsideAlerter";
 import data from '../../components/SearchKeywords.json'
 import CircularProgress from '@mui/material/CircularProgress';
+import Head from 'next/head'
 
 const WordNotFound = () => {
 
@@ -61,6 +62,9 @@ const WordNotFound = () => {
 
   return (
     <>
+    <Head>
+      <title>Sorry Word Not Found!</title>
+    </Head>
     <div className={styles.notContainer} >
       <div className={`${styles.notBox} mainBox`}>
         <OutsideAlerter setFocused={setFocused}>
