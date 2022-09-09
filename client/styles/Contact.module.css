@@ -89,6 +89,27 @@
     text-decoration: none;
 }
 
+.contactSuccess{
+    margin-top: 1rem;
+    color: white;
+    width: 80%;
+    height: 2.0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: green;
+    animation: Zoom 1s ease-out;
+}
+
+@keyframes Zoom {
+    0% {
+        transform: scale(0.5, 0.6);
+      }
+      100% {
+        transform: scale(1, 1);
+      }
+  }
+
 
 /* responsive design */
 
