@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import styles from '../../styles/WordNotFound.module.css';
-import style from '../../styles/Mainsearch.module.css'
 import { useRouter } from 'next/router'
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from 'react';
@@ -65,7 +64,7 @@ const WordNotFound = () => {
     <div className={styles.notContainer} >
       <div className={`${styles.notBox} mainBox`}>
         <OutsideAlerter setFocused={setFocused}>
-          <div className={styles.notSearch}>
+          <div className="mainSearch">
             <form onSubmit={handleSearch}>
              <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered || ""} placeholder="Search Word" type="mobile"/>
             </form>

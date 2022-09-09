@@ -75,7 +75,7 @@ const hideCartHandler= () => setHoveredCart(-1)
      <div className={styles.resultContainer}>
         <div className="mainBox">
           <OutsideAlerter setFocused={setFocused}>
-           <div className={styles.resultSearch}>
+           <div className="mainSearch">
             <form onSubmit={handleSearch}>
              <input onFocus={OnFocus} onChange={handleFilter} value={wordEntered} placeholder="Search Word" type="mobile"/>
             </form>
