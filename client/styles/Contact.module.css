@@ -1,0 +1,99 @@
+.contactContainer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.contactBox{
+    padding-bottom: 2rem;
+}
+
+.contactTitle{
+    width: 100%;
+    margin-top: 1rem;
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.14);
+    text-align: center;
+}
+
+.contactTitle h1{
+    font-size: 25px;
+}
+
+.contactMessage{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* contact form */
+
+.contactForm{
+    padding-top: 0.6rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem
+}
+
+.contactFormGroup{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.contactFormGroup input{
+    width: 100%;
+    height: 2.6rem;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 6px;
+    border-radius: 4px;
+    background: white;
+}
+
+.contactFormGroup textarea{
+    resize: vertical;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 6px;
+    padding-top: 0.6rem;
+    border-radius: 4px;
+    background: white;
+}
+
+.contactFormGroup button{
+    width: 100%;
+    height: 2.6rem;
+    border: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.73);
+    color: white;
+}
+
+.contactFormGroup button:hover{
+    background: black;
+}
+
+.contactMethods{
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.3rem;
+}
+
+.contactMethods a{
+    text-decoration: none;
+}
+
+
+/* responsive design */
+
+@media (max-width: 680px) {
+   .contactFormGroup{
+    width: 95%;
+   }
+  }
