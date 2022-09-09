@@ -1,15 +1,16 @@
-import { useRouter } from 'next/router';
 import style from "../styles/Navbar.module.css";
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Navbar = () => {
-
-  const router = useRouter()
 
   return (
     <>
     <nav className={style.navbarContainer}>
       <div className={style.navbarLogo}>
-        <h1 onClick={()=>router.push("/")} >മല്ലു നിഘണ്ടു</h1>
+        <Link href="/" >
+          <a><Image src="/mallu-nighandu-logo.png" width={340} height={73}/></a>
+        </Link>
       </div>
     </nav>
     </>

@@ -1,4 +1,3 @@
-@import url("https://smc.org.in/fonts/manjari.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .navbarContainer{
@@ -8,22 +7,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.iteminvisible{
-    width: 6rem;
-}
-
-.navbarLogo h1{
-    font-family: 'Noto Sans Malayalam', sans-serif;
-    font-weight: 600;
-    font-size: 38px;
-    cursor: pointer;
-}
-
- /* Responsive Design */ 
-
- @media (max-width:690px) {
-    .navbarLogo h1{
-        font-size: 32px;
-    }
-}  
