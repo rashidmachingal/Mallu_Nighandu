@@ -12,7 +12,7 @@ export default function Home() {
         <meta name="keywords" content="english malayalam dictionary, english to malayalam dictionary, mallu nighandu, enlgish word meaning in malayalam, english to malayalam meaning translation" />
         <link rel="image_src" href="/mallu-nighandu-logo.png" />
         <meta property="og:image" content="/mallu-nighandu-logo.png" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <MainSearch data={SearchKeywords} />
       <Content/>
