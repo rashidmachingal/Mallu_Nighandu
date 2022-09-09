@@ -1,15 +1,14 @@
 .contentContainer {
   margin-top: 1rem;
   width: 100vw;
-  height: 13rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 4rem;
 }
 
 .contentBox {
   width: 46rem;
-  height: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
