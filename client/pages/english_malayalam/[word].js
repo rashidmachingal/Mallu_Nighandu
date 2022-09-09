@@ -24,6 +24,7 @@ const WordPage = ({data}) => {
       <title>{word} | Malayalam Meaning of {word} - Mallu Nighandu</title>
       <meta name="description" content={`What is ${word} meaning or definition in Malayalam?`} />
       <meta name="keywords" content={`${word} meaning in Malayalam, Malayalam meaning of ${word}, ${word} enna vakkinte artham, ${word} Malayalam meannig`} />
+      <link rel="icon" href="/favicon.png" />
     </Head>
     <Result 
      word={word} 

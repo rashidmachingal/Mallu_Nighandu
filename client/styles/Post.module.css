@@ -1,0 +1,74 @@
+.postContainer {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+.postBox{
+  padding-top: 1.3rem;
+}  
+
+/* image */
+.postImage{
+  margin-top: 1rem;
+  width: 100%;
+  padding-left: 1rem;
+}  
+
+/* post title */
+.postTitle{
+  margin-top: 0.6rem;
+  width: 100%;
+  margin-left: 1rem;
+}  
+  
+.postTitle h1{
+  font-size: 25px;
+}
+
+/* post subtitle */
+.postSubTitle{
+  margin-top: 0.6rem;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.postSubTitle h2{
+  font-size: 20px;
+}
+
+/* post paragraph */
+.postPara{
+  width: 100%;
+  padding: 15px;
+}
+
+.postPara a{
+  text-decoration: none;
+}
+
+/* post list */
+.postList{
+  width: 100%;
+  padding-left: 1rem;
+  margin-top: 0.6rem;
+}
+
+.postList li{
+  list-style: none;
+}
+
+/* author box */
+.postAuthor{
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  gap: 1rem;
+  padding-left: 0.6rem;
+  align-items: center;
+  border-bottom: 0.3px solid rgba(0, 0, 0, 0.198);
+}
+
+.postAuthor img{
+  border-radius: 50%;
+}

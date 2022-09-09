@@ -26,9 +26,9 @@ const Footer = () => {
            <TwitterIcon onClick={()=>handleClick("https://twitter.com/rashimachingal")} style={{color: "00acee",cursor:"pointer"}} fontSize="small" />
           </div>
           <div className={styles.footerLinks}>
-            <Link href="#" ><a>Home</a></Link>
-            <Link href="#" ><a>About</a></Link>
-            <Link href="#" ><a>Contact</a></Link>
+            <Link href="/" ><a>Home</a></Link>
+            <Link href="/what-is-mallu-nighandu" ><a>About</a></Link>
+            <Link href="/contact" ><a>Contact</a></Link>
           </div>
         </div>
       </div>

@@ -64,6 +64,7 @@ const WordNotFound = () => {
     <>
     <Head>
       <title>Sorry Word Not Found!</title>
+      <link rel="icon" href="/favicon.png" />
     </Head>
     <div className={styles.notContainer} >
       <div className={`${styles.notBox} mainBox`}>
