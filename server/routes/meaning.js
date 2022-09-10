@@ -47,6 +47,21 @@ router.get("/search/:word", async (req, res) => {
   }
 });
 
+// add new meaning
+router.post("/add-new-meaning", async (req, res) => {
+  try {
+      const newMeaning = new Meaning({
+        english_word: req.body.english_word,
+        part_of_speech: req.body.part_of_speech,
+        malayalam_definition: req.body.malayalam_definition,
+      });
+      newMeaning.save();
+      res.json({status:"OK"})
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 // update word meaning
 router.post("/update-word-meaning/:id", async (req,res) => {
   try {

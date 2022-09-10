@@ -37,14 +37,14 @@ const AddNewMeaning = ({word,setIsAddNewActive,setIsUpdated,isUpdated}) => {
       return
     }
     setIsClicked(true)
-    let newData = [
+    let newData = 
       {
         english_word: word,
         part_of_speech:partOf,
         malayalam_definition:definition
       }
-    ]
-    const res = await axios.post("http://localhost:5000/api/add-new-word",newData)
+    
+    const res = await axios.post("http://localhost:5000/api/add-new-meaning",newData)
     if (res.data.status==="OK"){
       handleClick()
       setIsUpdated(!isUpdated)

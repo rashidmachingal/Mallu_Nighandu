@@ -12,7 +12,6 @@ const Contact = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [showSuccess, setShowSuccess] = useState(false)
     const [showForm, setShowForm] = useState(true)
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
